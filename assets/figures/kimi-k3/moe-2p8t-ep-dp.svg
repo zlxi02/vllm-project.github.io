@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 660" width="1280" height="660">
+  <defs>
+    <linearGradient id="topAccentM" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fdb517"/>
+      <stop offset="50%" stop-color="#30a2ff"/>
+      <stop offset="100%" stop-color="#fdb517"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="660" fill="#fafafa"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#topAccentM)"/>
+
+  <text x="640" y="58" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#111">Serving a 2.8T-parameter, 16-of-896 MoE</text>
+  <text x="640" y="94" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" fill="#555">Stable LatentMoE routes each token to 16 experts; vLLM shards them with expert + data parallelism</text>
+
+  <!-- Router -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <rect x="540" y="130" width="200" height="60" rx="12" fill="#fef3d0" stroke="#fdb517" stroke-width="2"/>
+    <text x="640" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="#7a5800">Router (top-16)</text>
+  </g>
+
+  <!-- Expert grid: 8 GPUs, each holding a slice of the 896 experts -->
+  <g transform="translate(120,240)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <!-- 8 GPU columns -->
+    <g>
+      <!-- helper via repeated blocks -->
+      <!-- GPU 0 -->
+      <rect x="0"    y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="130"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="260"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="390"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="520"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="650"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="780"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="910"  y="0" width="120" height="220" rx="10" fill="#eef6ff" stroke="#30a2ff" stroke-width="2"/>
+
+      <!-- expert dots inside each GPU (3x3) -->
+      <g fill="#30a2ff" opacity="0.55">
+        <!-- macro to place 8 groups -->
+        <g transform="translate(0,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(130,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(260,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(390,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(520,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(650,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(780,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+        <g transform="translate(910,0)">
+          <circle cx="30" cy="70" r="9"/><circle cx="60" cy="70" r="9"/><circle cx="90" cy="70" r="9"/>
+          <circle cx="30" cy="110" r="9"/><circle cx="60" cy="110" r="9"/><circle cx="90" cy="110" r="9"/>
+          <circle cx="30" cy="150" r="9"/><circle cx="60" cy="150" r="9"/><circle cx="90" cy="150" r="9"/>
+        </g>
+      </g>
+
+      <!-- GPU labels -->
+      <g font-size="15" fill="#14567a" font-weight="600" text-anchor="middle">
+        <text x="60"  y="24">GPU 0</text>
+        <text x="190" y="24">GPU 1</text>
+        <text x="320" y="24">GPU 2</text>
+        <text x="450" y="24">GPU 3</text>
+        <text x="580" y="24">GPU 4</text>
+        <text x="710" y="24">GPU 5</text>
+        <text x="840" y="24">GPU 6</text>
+        <text x="970" y="24">GPU 7</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Router to grid lines -->
+  <g stroke="#fdb517" stroke-width="2" opacity="0.6">
+    <line x1="640" y1="190" x2="230" y2="240"/>
+    <line x1="640" y1="190" x2="640" y2="240"/>
+    <line x1="640" y1="190" x2="1030" y2="240"/>
+  </g>
+
+  <text x="640" y="512" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="#555">896 experts sharded across GPUs (expert parallelism) · replicated request streams (data parallelism)</text>
+
+  <!-- EPLB callout -->
+  <g transform="translate(340,540)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <rect x="0" y="0" width="600" height="70" rx="14" fill="#f0fbf3" stroke="#39a06a" stroke-width="2"/>
+    <text x="300" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1f7a4d">Expert-Parallel Load Balancing (EPLB)</text>
+    <text x="300" y="55" text-anchor="middle" font-size="17" fill="#2b7a55">keeps hot experts from stalling a shard · routing balance 0.93 → 0.99</text>
+  </g>
+</svg>

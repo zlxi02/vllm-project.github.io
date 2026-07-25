@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 600" width="1280" height="600">
+  <defs>
+    <linearGradient id="topAccentD" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fdb517"/>
+      <stop offset="50%" stop-color="#30a2ff"/>
+      <stop offset="100%" stop-color="#fdb517"/>
+    </linearGradient>
+    <marker id="arrK" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="600" fill="#fafafa"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#topAccentD)"/>
+
+  <text x="640" y="58" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#111">DSpark speculative decoding with the Kimi K3 MTP draft</text>
+  <text x="640" y="94" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" fill="#555">A lightweight multi-token-prediction draft proposes tokens; the full model verifies them in one pass</text>
+
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <!-- Draft -->
+    <rect x="120" y="160" width="360" height="150" rx="14" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+    <text x="300" y="205" text-anchor="middle" font-size="24" font-weight="700" fill="#14567a">MTP draft model</text>
+    <text x="300" y="240" text-anchor="middle" font-size="18" fill="#14567a">Kimi-K3-MTP</text>
+    <text x="300" y="272" text-anchor="middle" font-size="18" fill="#555">proposes N candidate tokens</text>
+
+    <!-- Verify -->
+    <rect x="800" y="160" width="360" height="150" rx="14" fill="#fef3d0" stroke="#fdb517" stroke-width="2"/>
+    <text x="980" y="205" text-anchor="middle" font-size="24" font-weight="700" fill="#7a5800">Kimi K3 (2.8T)</text>
+    <text x="980" y="240" text-anchor="middle" font-size="18" fill="#7a5800">verifies candidates in parallel</text>
+    <text x="980" y="272" text-anchor="middle" font-size="18" fill="#555">accepts the correct prefix</text>
+
+    <!-- arrows -->
+    <line x1="480" y1="220" x2="795" y2="220" stroke="#555" stroke-width="2.5" marker-end="url(#arrK)"/>
+    <text x="640" y="205" text-anchor="middle" font-size="16" fill="#555">candidate tokens</text>
+    <path d="M980,315 C980,360 300,360 300,320" fill="none" stroke="#555" stroke-width="2.5" marker-end="url(#arrK)"/>
+    <text x="640" y="358" text-anchor="middle" font-size="16" fill="#555">accepted tokens continue the sequence</text>
+  </g>
+
+  <!-- Throughput bars (relative, illustrative) -->
+  <g transform="translate(300,420)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="340" y="-6" text-anchor="middle" font-size="18" font-weight="700" fill="#111">Relative decode throughput (illustrative)</text>
+
+    <!-- baseline -->
+    <text x="-20" y="42" text-anchor="end" font-size="17" fill="#555">without DSpark</text>
+    <rect x="0" y="24" width="320" height="30" rx="6" fill="#c9d3da"/>
+    <text x="332" y="46" font-size="17" font-weight="700" fill="#333">baseline</text>
+
+    <!-- dspark -->
+    <text x="-20" y="102" text-anchor="end" font-size="17" fill="#555">with DSpark</text>
+    <rect x="0" y="84" width="620" height="30" rx="6" fill="#30a2ff"/>
+    <text x="632" y="106" font-size="17" font-weight="700" fill="#14567a">higher decode throughput</text>
+  </g>
+</svg>

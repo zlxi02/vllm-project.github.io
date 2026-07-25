@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="topAccentK" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fdb517"/>
+      <stop offset="50%" stop-color="#30a2ff"/>
+      <stop offset="100%" stop-color="#fdb517"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="#fafafa"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#topAccentK)"/>
+
+  <text x="640" y="60" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#111">KimiLinear: a hybrid attention stack</text>
+  <text x="640" y="98" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="400" fill="#555">Mostly linear Kimi Delta Attention layers, with periodic full-attention layers for global recall</text>
+
+  <!-- Legend -->
+  <g transform="translate(360,130)">
+    <rect x="0" y="0" width="24" height="24" rx="5" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+    <text x="34" y="18" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" fill="#14567a" font-weight="600">Kimi Delta Attention (linear)</text>
+    <rect x="340" y="0" width="24" height="24" rx="5" fill="#fef3d0" stroke="#fdb517" stroke-width="2"/>
+    <text x="374" y="18" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" fill="#7a5800" font-weight="600">Full attention (periodic)</text>
+  </g>
+
+  <!-- Layer stack: 10 blocks, every 4th is full attention -->
+  <g transform="translate(150,200)">
+    <!-- KDA blocks -->
+    <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <!-- row of layer tiles -->
+      <!-- L1 -->
+      <rect x="0"    y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="98"   y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="196"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <!-- Full attn -->
+      <rect x="294"  y="0" width="88" height="300" rx="10" fill="#fef3d0" stroke="#fdb517" stroke-width="2"/>
+      <rect x="392"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="490"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="588"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <!-- Full attn -->
+      <rect x="686"  y="0" width="88" height="300" rx="10" fill="#fef3d0" stroke="#fdb517" stroke-width="2"/>
+      <rect x="784"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+      <rect x="882"  y="0" width="88" height="300" rx="10" fill="#dceefb" stroke="#30a2ff" stroke-width="2"/>
+
+      <text x="44"  y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,44,160)">KDA</text>
+      <text x="142" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,142,160)">KDA</text>
+      <text x="240" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,240,160)">KDA</text>
+      <text x="338" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#7a5800" transform="rotate(-90,338,160)">FULL</text>
+      <text x="436" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,436,160)">KDA</text>
+      <text x="534" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,534,160)">KDA</text>
+      <text x="632" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,632,160)">KDA</text>
+      <text x="730" y="160" text-anchor="middle" font-size="17" font-weight="700" fill="#7a5800" transform="rotate(-90,730,160)">FULL</text>
+      <text x="828" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,828,160)">KDA</text>
+      <text x="926" y="160" text-anchor="middle" font-size="17" font-weight="600" fill="#14567a" transform="rotate(-90,926,160)">KDA</text>
+    </g>
+  </g>
+
+  <!-- Bottom annotations -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="300" y="560" text-anchor="middle" font-size="19" fill="#14567a" font-weight="600">Bounded per-token state → cheap long context</text>
+    <text x="980" y="560" text-anchor="middle" font-size="19" fill="#7a5800" font-weight="600">Full layers → exact global recall</text>
+  </g>
+  <text x="640" y="612" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" fill="#888">Together they make a 1,048,576-token context practical to serve in vLLM.</text>
+</svg>
